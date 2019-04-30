@@ -1,0 +1,197 @@
+<%inherit file="/base.html"/>
+<head>
+    <meta charset="utf-8">
+    <title>图形展示</title>
+    <!-- 引入 echarts.js -->
+    <script src="${STATIC_URL}js/echarts.min.js"></script>
+</head>
+<style>
+    ::-webkit-scrollbar{
+display:none;
+}
+
+    section {
+        width: 350px;
+        float: left;
+        padding: 10px;
+        position: relative;
+        left:200px;
+    }
+
+
+</style>
+<div>
+    <a href="javascript:history.go(-1);">返回上一页&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+        <a href="#">
+            %for i in xrange(len(sdm)):
+                <a href="${SITE_URL}mg/sfquanl/${sdms[i]}/${id_d}">${sdm[i]}</a>
+            %endfor
+        </a>
+</div>
+
+<body>
+
+
+<section name="ceshi">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1000px;height:500px;position: relative;right: 100px;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '${leix}'
+            },
+            tooltip: {
+                trigger: 'item'  //加上这句后，图形点上同时显示其他项的数量。axis是显示所有item是显示当前
+            },
+            legend: {
+                data: ['${sdm[0]}', '${sdm[1]}', '${sdm[2]}', '${sdm[3]}', '${sdm[4]}','${sdm[5]}','${sdm[6]}']    //这句为再顶部展示各条折线，点击展示与隐藏
+            },
+
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}       //图片右上角下载按钮
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[1]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${beij[0]}', '${beij[1]}', '${beij[2]}', '${beij[3]}', '${beij[4]}',
+                    '${beij[5]}', '${beij[6]}', '${beij[7]}', '${beij[8]}', '${beij[9]}',
+                    '${beij[10]}', '${beij[11]}', '${beij[12]}', '${beij[13]}', '${beij[14]}',
+                    '${beij[15]}', '${beij[16]}', '${beij[17]}', '${beij[18]}', '${beij[19]}',
+                    '${beij[20]}', '${beij[21]}', '${beij[22]}', '${beij[23]}', '${beij[24]}',
+                    '${beij[25]}', '${beij[26]}', '${beij[27]}', '${beij[28]}', '${beij[29]}',
+                    '${beij[30]}', '${beij[31]}', '${beij[32]}', '${beij[33]}', '${beij[34]}',
+                    '${beij[35]}', '${beij[36]}', '${beij[37]}', '${beij[38]}', '${beij[39]}',]
+
+            },
+
+                {
+                    name: '${sdm[2]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${guangd[0]}', '${guangd[1]}', '${guangd[2]}', '${guangd[3]}', '${guangd[4]}',
+                        '${guangd[5]}', '${guangd[6]}', '${guangd[7]}', '${guangd[8]}', '${guangd[9]}',
+                        '${guangd[10]}', '${guangd[11]}', '${guangd[12]}', '${guangd[13]}', '${guangd[14]}',
+                        '${guangd[15]}', '${guangd[16]}', '${guangd[17]}', '${guangd[18]}', '${guangd[19]}',
+                        '${guangd[20]}', '${guangd[21]}', '${guangd[22]}', '${guangd[23]}', '${guangd[24]}',
+                        '${guangd[25]}', '${guangd[26]}', '${guangd[27]}', '${guangd[28]}', '${guangd[29]}',
+                        '${guangd[30]}', '${guangd[31]}', '${guangd[32]}', '${guangd[33]}', '${guangd[34]}',
+                        '${guangd[35]}', '${guangd[36]}', '${guangd[37]}', '${guangd[38]}', '${guangd[39]}',]
+                },
+
+                {
+                    name: '${sdm[3]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${shangh[0]}', '${shangh[1]}', '${shangh[2]}', '${shangh[3]}', '${shangh[4]}',
+                        '${shangh[5]}', '${shangh[6]}', '${shangh[7]}', '${shangh[8]}', '${shangh[9]}',
+                        '${shangh[10]}', '${shangh[11]}', '${shangh[12]}', '${shangh[13]}', '${shangh[14]}',
+                        '${shangh[15]}', '${shangh[16]}', '${shangh[17]}', '${shangh[18]}', '${shangh[19]}',
+                        '${shangh[20]}', '${shangh[21]}', '${shangh[22]}', '${shangh[23]}', '${shangh[24]}',
+                        '${shangh[25]}', '${shangh[26]}', '${shangh[27]}', '${shangh[28]}', '${shangh[29]}',
+                        '${shangh[30]}', '${shangh[31]}', '${shangh[32]}', '${shangh[33]}', '${shangh[34]}',
+                        '${shangh[35]}', '${shangh[36]}', '${shangh[37]}', '${shangh[38]}', '${shangh[39]}']
+                },
+
+                {
+                    name: '${sdm[4]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${tianj[0]}', '${tianj[1]}', '${tianj[2]}', '${tianj[3]}', '${tianj[4]}',
+                        '${tianj[5]}', '${tianj[6]}', '${tianj[7]}', '${tianj[8]}', '${tianj[9]}',
+                        '${tianj[10]}', '${tianj[11]}', '${tianj[12]}', '${tianj[13]}', '${tianj[14]}',
+                        '${tianj[15]}', '${tianj[16]}', '${tianj[17]}', '${tianj[18]}', '${tianj[19]}',
+                        '${tianj[20]}', '${tianj[21]}', '${tianj[22]}', '${tianj[23]}', '${tianj[24]}',
+                        '${tianj[25]}', '${tianj[26]}', '${tianj[27]}', '${tianj[28]}', '${tianj[29]}',
+                        '${tianj[30]}', '${tianj[31]}', '${tianj[32]}', '${tianj[33]}', '${tianj[34]}',
+                        '${tianj[35]}', '${tianj[36]}', '${tianj[37]}', '${tianj[38]}', '${tianj[39]}',]
+                },
+
+
+                {
+                    name: '${sdm[5]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${chongq[0]}', '${chongq[1]}', '${chongq[2]}', '${chongq[3]}', '${chongq[4]}',
+                        '${chongq[5]}', '${chongq[6]}', '${chongq[7]}', '${chongq[8]}', '${chongq[9]}',
+                        '${chongq[10]}', '${chongq[11]}', '${chongq[12]}', '${chongq[13]}', '${chongq[14]}',
+                        '${chongq[15]}', '${chongq[16]}', '${chongq[17]}', '${chongq[18]}', '${chongq[19]}',
+                        '${chongq[20]}', '${chongq[21]}', '${chongq[22]}', '${chongq[23]}', '${chongq[24]}',
+                        '${chongq[25]}', '${chongq[26]}', '${chongq[27]}', '${chongq[28]}', '${chongq[29]}',
+                        '${chongq[30]}', '${chongq[31]}', '${chongq[32]}', '${chongq[33]}', '${chongq[34]}',
+                        '${chongq[35]}', '${chongq[36]}', '${chongq[37]}', '${chongq[38]}', '${chongq[39]}',]
+
+                },
+
+                {
+                    name: '${sdm[6]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${liaon[0]}', '${liaon[1]}', '${liaon[2]}', '${liaon[3]}', '${liaon[4]}',
+                        '${liaon[5]}', '${liaon[6]}', '${liaon[7]}', '${liaon[8]}', '${liaon[9]}',
+                        '${liaon[10]}', '${liaon[11]}', '${liaon[12]}', '${liaon[13]}', '${liaon[14]}',
+                        '${liaon[15]}', '${liaon[16]}', '${liaon[17]}', '${liaon[18]}', '${liaon[19]}',
+                        '${liaon[20]}', '${liaon[21]}', '${liaon[22]}', '${liaon[23]}', '${liaon[24]}',
+                        '${liaon[25]}', '${liaon[26]}', '${liaon[27]}', '${liaon[28]}', '${liaon[29]}',
+                        '${liaon[30]}', '${liaon[31]}', '${liaon[32]}', '${liaon[33]}', '${liaon[34]}',
+                        '${liaon[35]}', '${liaon[36]}', '${liaon[37]}', '${liaon[38]}', '${liaon[39]}',]
+
+                },
+
+                {
+                    name: '${sdm[0]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${s_sum[0]}', '${s_sum[1]}', '${s_sum[2]}', '${s_sum[3]}', '${s_sum[4]}',
+                        '${s_sum[5]}', '${s_sum[6]}', '${s_sum[7]}', '${s_sum[8]}', '${s_sum[9]}',
+                        '${s_sum[10]}', '${s_sum[11]}', '${s_sum[12]}', '${s_sum[13]}', '${s_sum[14]}',
+                        '${s_sum[15]}', '${s_sum[16]}', '${s_sum[17]}', '${s_sum[18]}', '${s_sum[19]}',
+                        '${s_sum[20]}', '${s_sum[21]}', '${s_sum[22]}', '${s_sum[23]}', '${s_sum[24]}',
+                        '${s_sum[25]}', '${s_sum[26]}', '${s_sum[27]}', '${s_sum[28]}', '${s_sum[29]}',
+                        '${s_sum[30]}', '${s_sum[31]}', '${s_sum[32]}', '${s_sum[33]}', '${s_sum[34]}',
+                        '${s_sum[35]}', '${s_sum[36]}', '${s_sum[37]}', '${s_sum[38]}', '${s_sum[39]}',]
+
+                },
+
+
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    </script>
+
+    </section>
+
+
+
+</body>

@@ -1,0 +1,134 @@
+<%inherit file="/base.html"/>
+
+<style>
+    td {
+        text-align: center;
+        width: 20px;
+        font-weight: bold;
+    }
+    #beig {
+        height: 50px;
+        background-color: #D3D3D3;
+    }
+
+    table {
+        opacity: 1;
+    }
+
+    body {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+</style>
+<body>
+%if tu_num and leix == '下发':
+    <div><a href="${SITE_URL}mg/xfdtxzs/${page}/${tu_num}">${sdm}${leix}图形</a></div>
+%elif leix == '上发' or leixing == '上发费用':
+    <div><a href="${SITE_URL}mg/sftxzs/${page}">${sdm}${leix}图形</a></div>
+%endif
+
+<div id="top">
+    <table style="width:1300px;height:50px;margin:auto;">
+        <th colspan="14" style="text-align:center;" class="col-md-2 hidden-xs hidden-sm">${sdm}${leix}全量数据</th>
+    </table>
+</div>
+
+<div class="container" style="width: 70%;">
+    <div class="row" style="width: 110%">
+        <div class="col-md-2 hidden-xs hidden-sm">
+            <div id="lie1">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <td id="beig">日期</td>
+                        <td>数据</td>
+                    </tr>
+                    %for i in xrange(8):
+                    <tr>
+                        <td id="beig">${ri_q[i]}</td>
+                        <td style="text-align: right;">${info[i]}</td>
+                    </tr>
+                    %endfor
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-2 hidden-xs hidden-sm">
+
+            <div id="lie2" class="ding">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <td id="beig">日期</td>
+                        <td>数据</td>
+                    </tr>
+                    %for i in xrange(8,16):
+                    <tr>
+                        <td id="beig">${ri_q[i]}</td>
+                        <td style="text-align: right;">${info[i]}</td>
+                    </tr>
+                    %endfor
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-2 hidden-xs hidden-sm">
+
+            <div id="lie3">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <td id="beig">日期</td>
+                        <td>数据</td>
+                    </tr>
+                    %for i in xrange(16,24):
+                    <tr>
+                        <td id="beig">${ri_q[i]}</td>
+                        <td style="text-align: right;">${info[i]}</td>
+                    </tr>
+                    %endfor
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-2 hidden-xs hidden-sm">
+            <div id="lie4">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <td id="beig">日期</td>
+                        <td>数据</td>
+                    </tr>
+                    %for i in xrange(24,32):
+                    <tr>
+                        <td id="beig">${ri_q[i]}</td>
+                        <td style="text-align: right;">${info[i]}</td>
+                    </tr>
+                    %endfor
+                </table>
+            </div>
+        </div>
+        <div class="col-md-2 hidden-xs hidden-sm">
+            <div id="lie5">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <td id="beig">日期</td>
+                        <td>数据</td>
+                    </tr>
+                    %for i in xrange(32,40):
+                    <tr>
+                        <td id="beig">${ri_q[i]}</td>
+                        <td style="text-align: right;">${info[i]}</td>
+                    </tr>
+                    %endfor
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div  class="col-md-2 hidden-lg hidden-md">此页面不支持小屏幕及超小屏幕的显示</div>
+
+</body>

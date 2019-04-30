@@ -1,0 +1,80 @@
+<%inherit file="/new_base.html"/>
+
+	<%block name='zhong'>
+<style type="text/css">
+    th{
+        text-align:center;/** 设置水平方向居中 */
+        vertical-align:middle/** 设置垂直方向居中 */
+    }
+        ::-webkit-scrollbar{
+display:none;
+}
+</style>
+
+</%block>
+<%block name='content'>
+<div>
+    <ol class="breadcrumb">
+        <li><a href="${SITE_URL}home/${request.user}">首页</a></li>
+        <li class="active">业务人员管理页面</li>
+        </ol>
+</div>
+<body style="margin:50px" class="table-responsive">
+<div style="position: relative;bottom: 15px;">
+        <table class="table table-hover table-bordered" style="height: 300px;">
+	<thead>
+		<tr>
+			<th colspan="4" style="font-size: 20px;">业务人员管理页面</th>
+		</tr>
+        <tr>
+            <th>负责的业务</th>
+            <th>未负责业务</th>
+        </tr>
+	</thead>
+        </table>
+</div>
+
+<div style="width:90%;height: 400px;overflow:auto; border-bottom:1px solid #dddddd;position: relative;bottom: 25px;left: 60px;">
+
+    <table class="table table-bordered" style="height: 300px;">
+	<tbody>
+            %for i in xrange(20):
+                <tr style="text-align: center;">
+                    <td class="success"><span class="glyphicon glyphicon-ok" ></span></td>
+                    <td  id="${yw_list[i]}" class="success" onclick="one(this.id)" style="width: 300px;">${yw_list[i]}</td>
+                    <td> </td>
+                    <td class="danger"><span class="glyphicon glyphicon-remove"></span></td>
+                    <td id="${bfz_list[i]}" class="danger" onclick="two(this.id)" style="width: 300px;">${bfz_list[i]}</td>
+                </tr>
+            %endfor
+	</tbody>
+
+</table>
+</div>
+
+</body>
+</%block>
+
+<%block name='jiaoben'>
+<script>
+       function one(x) {
+        var name = document.getElementById(x).innerHTML;
+           $.getJSON('${SITE_URL}ajax_sc/',{'name': name} ,function (data) {
+
+               location.reload();
+            }
+        )
+    }
+
+    function two(x) {
+           var name = document.getElementById(x).innerHTML;
+           $.getJSON('${SITE_URL}ajax_add/',{'name': name} ,function (data) {
+
+               location.reload();
+            }
+        )
+    }
+</script>
+
+ </%block>
+

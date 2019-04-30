@@ -1,0 +1,34 @@
+<%inherit file="/base.html"/>
+<!-- saved from url=(0079)http://localhost:63342/temp/templates/test.html?_ijt=dsg7cjs29om741veksuscsk3q1 -->
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
+    <!-- Bootstrap css -->
+    <link href="${STATIC_URL}daohang/test_files/bootstrap.min.css" rel="stylesheet">
+    <!-- kendo ui css -->
+    <link href="${STATIC_URL}daohang/test_files/kendo.common.min.css" rel="stylesheet">
+    <link href="${STATIC_URL}daohang/test_files/kendo.default.min.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="${STATIC_URL}daohang/test_files/font-awesome.css" rel="stylesheet">
+    <!--蓝鲸提供的公用样式库 -->
+    <link href="${STATIC_URL}daohang/test_files/bk.css" rel="stylesheet">
+    <link href="${STATIC_URL}daohang/test_files/bk_pack.css" rel="stylesheet">
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="${STATIC_URL}daohang/test_files/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="${STATIC_URL}daohang/test_files/echarts-all.js"></script>
+    <script src="${STATIC_URL}daohang/test_files/bootstrap.min.js"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="${STATIC_URL}daohang/test_files/kendo.all.min.js"></script>
+    <script src="${STATIC_URL}daohang/test_files/echarts-all.js"></script>
+    <script src="${STATIC_URL}daohang/test_files/bk.js"></script>
+    <!-- 数据埋点统计 -->
+    <script src="${STATIC_URL}daohang/test_files/analysis.js"></script>
+
+
+</head>

@@ -1,0 +1,103 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>登录</title>
+<!-- Custom Theme files -->
+<link href="${STATIC_URL}login_muban/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="登录" />
+
+</head>
+<body onload="load()">
+<!--header start here-->
+<div class="login-form">
+			<div class="top-login">
+				<span><img src="${STATIC_URL}login_muban/images/group.png" alt=""/></span>
+			</div>
+			<h1>注册</h1>
+			<div class="login-top">
+			<form  action="${SITE_URL}psms/regist/" method="POST" enctype="multipart/form-data" name="lala">
+				<div class="login-ic">
+					<i ></i>
+					<input type="text"  value="请输入用户名" name="name" oninput="o_input()"
+                           onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'User name';}"/>
+                    <span id="name_1"></span>
+					<div class="clear"> </div>
+				</div>
+				<div class="login-ic">
+					<i class="icon"></i>
+					<input type="text"  value="请输入密码" name="password"
+                           onFocus="{this.value = '';this.type='password'}" onBlur="if (this.value == '') {this.value = 'password';this.type = 'text';}"/>
+					<span id="name_2"></span>
+                    <div class="clear"> </div>
+				</div>
+                <div class="login-ic">
+                    <i class="icon-ic"></i>
+                    <input type="file" name="user_icon">
+                </div>
+				<div class="log-bwn">
+					<input id="tj" type="submit"  value="REGIST">
+				</div>
+                <div>
+                    <br>
+                </div>
+                <div style="position: relative;left: 310px;">
+                    <a href="${SITE_URL}psms/login">
+                        <button type="button" class="btn btn-default btn-xs">
+	                        <span class="glyphicon glyphicon-user">
+                                已有账号？点我登陆
+                            </span>
+                        </button>
+                    </a>
+                </div>
+				</form>
+                <p class="copy">© 2019 02 25 14 31  <a href="https://asiainfo.hirede.com/" target="_blank">亚信科技</a></p>
+			</div>
+
+</div>		
+<!--header start here-->
+
+
+</body>
+</html>
+<script src="${STATIC_URL}new_temp/js/jquery.min.js"></script>
+<script>
+    function load() {
+        document.getElementById("tj").setAttribute("disabled", true);
+        document.getElementById("tj").value="请输入"
+    }
+
+
+
+
+
+    function o_input() {
+        var name = document.lala.name.value;
+        var password = document.lala.password.value;
+
+        $.getJSON('${SITE_URL}ajax_check/',{'name': name,'password':password} ,function (data) {
+
+               if(data.code == '700'){
+                   name_1.innerHTML = data.message;
+                   name_1.style.color = 'red';
+                   document.getElementById("tj").setAttribute("disabled", true);
+                   document.getElementById("tj").value="请输入"
+
+               }else if(data.code == '200'){
+                   name_1.innerHTML = ' ';
+                   document.getElementById("tj").removeAttribute("disabled");
+                   document.getElementById("tj").value="REGIST";
+               }
+            }
+        );
+
+    }
+</script>

@@ -1,0 +1,183 @@
+<%inherit file="/new_base.html"/>
+    <%block name='zhong'>
+
+        <li class="dropdown">
+			<a href="#" data-toggle="dropdown">所有业务 <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				%for i,j in zywx_dict.items():
+                <li>
+                    <a href="${j}">${i}</a>
+                </li>
+                %endfor
+			</ul>
+		</li>
+        <li class="dropdown">
+			<a href="#" data-toggle="dropdown">我的业务 <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				 %for i,j in dict_yw.items():
+                    <li><a href="${j}">${i}</a></li>
+                %endfor
+			</ul>
+		</li>
+        <li>
+            <a href="${SITE_URL}tjscywx"><span>分配业务</span></a>
+        </li>
+    </%block>
+
+    <%block name='content'>
+
+<div id="myCarousel" class="carousel slide">
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+
+	<div class="carousel-inner">
+		<div class="item active" style="background:#223240">
+			<img src="${STATIC_URL}new_temp/img/yaxin.png" alt="第一张">
+		</div>
+		<div class="item" style="background:#223240;">
+			<img src="${STATIC_URL}new_temp/img/yaxin.png" alt="第二张">
+		</div>
+		<div class="item" style="background:#223240;">
+			<img src="${STATIC_URL}new_temp/img/yaxin.png" alt="第三张">
+		</div>
+<!-- 		<div style="background:#eee;">
+			<img src="img/slide.png" alt="第三张">
+		</div> -->
+	</div>
+	<a href="#myCarousel" data-slide="prev" class="carousel-control left">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a href="#myCarousel" data-slide="next" class="carousel-control right">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</div>
+
+
+<div class="tab1">
+	<div class="container">
+		<h2 class="tab-h2">「为什么信赖亚信科技?」</h2>
+		<p class="tab-p">强大的实力，辉煌的历程，承建中国第一个商业化Internet骨干网ChinaNet！</p>
+		<div class="row">
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<a href="#"><img src="${STATIC_URL}new_temp/img/tab1-1.png" class="media-object" alt=""></a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">公司目标</h4>
+						<p>国际化：</p>
+						<p>雄厚的国际资本和技术资源，服务于中国客户。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<a href="#"><img src="${STATIC_URL}new_temp/img/tab1-2.png" class="media-object" alt=""></a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">公司实力</h4>
+						<p>技术</p>
+						<p>最早将Internet引入中国，一直立足于世界技术前沿，将先进的技术转化为成熟的应用，推动中国信息化进程。</p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<a href="#"><img src="${STATIC_URL}new_temp/img/tab1-3.png" class="media-object" alt=""></a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">公司运作</h4>
+						<p>管理</p>
+						<p>符合国际规范的企业管理制度,中西合璧的文化体系，为企业高效、健康的运作提供了保障。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col">
+				<div class="media">
+					<div class="media-left">
+						<a href="#"><img src="${STATIC_URL}new_temp/img/tab1-4.png" class="media-object" alt=""></a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">公司服务</h4>
+						<p>服务</p>
+						<p>亚信拥有丰富的电信项目实施经验。从1995年起，亚信承建了上千项大型网络及核心业务系统项目</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+            <div class="tab2">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 tab2-img">
+				<img src="${STATIC_URL}new_temp/img/tab2.png" class="auto img-responsive center-block" alt="">
+			</div>
+			<div class="text col-md-6 col-sm-6 tab2-text">
+				<h3>强大的合作伙伴</h3>
+				<p>中国移动，中国联通，中国电信，各大银行，工信部等！</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="tab3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<img src="${STATIC_URL}new_temp/img/tab3.png" class="auto img-responsive center-block" alt="">
+			</div>
+			<div class="text col-md-6 col-sm-6">
+				<h3>完美的管理方式</h3>
+				<p>最新的管理培训方案，对新员工进行系统的培训和关怀。</p>
+			</div>
+		</div>
+	</div>
+</div>
+</%block>
+<script>//轮播自动播放
+	$('#myCarousel').carousel({
+		//自动4秒播放
+		interval : 4000,
+	});
+
+	// //设置垂直居中
+	// $('.carousel-control').css('line-height', $('.carousel-inner img').height() + 'px');
+	// $(window).resize(function () {
+	// 	var $height = $('.carousel-inner img').eq(0).height() ||
+	// 				  $('.carousel-inner img').eq(1).height() ||
+	// 				  $('.carousel-inner img').eq(2).height();
+	// 	$('.carousel-control').css('line-height', $height + 'px');
+	// });
+
+	//设置文字垂直居中，谷歌浏览器加载图片的顺序问题，导致高度无法获取
+	$(window).load(function () {
+		$('.text').eq(0).css('margin-top', ($('.auto').eq(0).height() - $('.text').eq(0).height()) / 2 + 'px');
+	});
+
+
+	$(window).resize(function () {
+		$('.text').eq(0).css('margin-top', ($('.auto').eq(0).height() - $('.text').eq(0).height()) / 2 + 'px');
+	});
+
+	$(window).load(function () {
+		$('.text').eq(1).css('margin-top', ($('.auto').eq(1).height() - $('.text').eq(1).height()) / 2 + 'px');
+	});
+
+	$(window).resize(function () {
+		$('.text').eq(1).css('margin-top', ($('.auto').eq(1).height() - $('.text').eq(1).height()) / 2 + 'px');
+	});
+
+</script>
+
+
+
+

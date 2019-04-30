@@ -1,0 +1,94 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>登录</title>
+<!-- Custom Theme files -->
+<link href="${STATIC_URL}login_muban/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="stylesheet" href="${STATIC_URL}new_temp/css/bootstrap.min.css">
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="登录" />
+
+</head>
+<body onkeydown="keyLogin()">
+<!--header start here-->
+<div class="login-form">
+			<div class="top-login">
+				<span><img src="${STATIC_URL}login_muban/images/group.png" alt=""/></span>
+			</div>
+			<h1>登录</h1>
+			<div class="login-top">
+			<form  action="${SITE_URL}psms/login/" method="POST" name="lala" id="formid">
+				<div class="login-ic">
+					<i ></i>
+					<input type="text"  value="用户" name="name" oninput="one()"
+                           onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'User name';}"/>
+
+					<div class="clear"> </div>
+                    <span id="name_1" style="position: relative;left: 40px;"></span>
+				</div>
+				<div class="login-ic">
+					<i class="icon"></i>
+					<input type="text"  value="密码" name="password"
+                           onFocus="{this.value = '';this.type='password'}" onBlur="if (this.value == '') {this.value = 'password';this.type = 'text';}"/>
+					<div class="clear"> </div>
+				</div>
+			
+				<div class="log-bwn">
+                    <input class="btn btn-block btn-success" id="button" name="button" type="button" value="登录"
+                       onclick= "checkfunction()">
+				</div>
+                <div>
+                    <br>
+                </div>
+                <div style="position: relative;left: 310px;">
+                    <a href="${SITE_URL}psms/regist">
+                        <button type="button" class="btn btn-default btn-xs">
+	                        <span class="glyphicon glyphicon-user">
+                                没有账号？点我注册
+                            </span>
+                        </button>
+                    </a>
+                </div>
+				</form>
+                <p class="copy">© 2019 02 25 14 31  <a href="https://asiainfo.hirede.com/" target="_blank">亚信科技</a></p>
+			</div>
+
+</div>		
+<!--header start here-->
+</body>
+</html>
+<script src="${STATIC_URL}new_temp/js/jquery.min.js"></script>
+<script>
+    function one() {
+        name_1.innerHTML = ' '
+    }
+
+    function checkfunction() {
+        var name = document.lala.name.value;
+        var password = document.lala.password.value;
+
+        $.getJSON('${SITE_URL}ajax_login/',{'name': name,'password':password} ,function (data) {
+            if( data.code == '700' ){
+                name_1.innerHTML = '您的输入有误，请重新输入。';
+                name_1.style.color = 'red';
+            }else if(data.code == '200'){
+                document.getElementById('formid').submit()
+            }
+            }
+        );
+
+    }
+
+    function keyLogin(){
+        if (event.keyCode==13)  //回车键的键值为13,使用此方法，现在body处定义，用法与onload类似
+            document.getElementById("button").click(); //调用登录按钮的登录事件
+}
+</script>

@@ -1,0 +1,389 @@
+<%inherit file="/new_base.html"/>
+
+	<%block name='zhong'>
+        <li style="position: relative;right: 30px;"> <a href="${SITE_URL}mg/xq"><span>详情</span></a> </li>
+                 </%block>
+
+
+<%block name='content'>
+<body style="margin:50px" class="table-responsive">
+            <!-- 如果上发下发或者错单有今天或者昨天为零，今天不为零的情况，那么就滚动显示在业务线顶部。 如果没有，不滚动，什么也不显示。-->
+            <div class="king-page-topbar">
+                <h3 class="king-topbar-title mb0">
+                    %if zd_zero.get('sf') != '':
+                    <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                        <span>
+                            上发突变为0:
+                            %for i in zd_zero['sf']:
+                                ${i}
+                            %endfor
+                        </span>
+                    </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+
+                    %if zd_zero.get('xf') != '':
+                    <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                        <span>
+                            下发突变为0:
+                            %for i in zd_zero['xf']:
+                                ${i}
+                            %endfor
+                        </span>
+                    </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+                    %if zd_zero.get('cd') != '':
+                        <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                            <span>
+                            错单突变为零:
+                            %for i in zd_zero['cd']:
+                                ${i}
+                            %endfor
+                        </span>
+                        </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+
+                    %if zd_zero.get('sffy') != '':
+                        <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                            <span>
+                            错单突变为零:
+                            %for i in zd_zero['sffy']:
+                                ${i}
+                            %endfor
+                        </span>
+                        </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+                    <span class="success"></span>
+                </h3>
+           <ol class="breadcrumb">
+        <li><a href="${SITE_URL}home/${request.user}">首页</a></li>
+        <li class="active">MG业务波动汇总</li>
+        </ol>
+            </div>
+            <!-- 面板 编辑 开始 -->
+
+
+<div class="panel panel-success" style="width: 90%;position: relative;left: 5%;bottom: 3%">
+	<div class="panel-heading">
+		<h3 class="panel-title" style="text-align: center;font-size: 20px;">MG业务波动数据汇总</h3>
+	</div>
+	<table class="table">
+         <th colspan="13" bgcolor=""></th>
+            <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}mg/mg/sf"><p style="font-size: 20px;text-align: center"><br><br>上发</p></a></td>
+             </tr>
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                % for i in xrange(10):
+                    % if one[i] != '无':
+                        %if one[i] == 'dongman':
+                            <td><a href="${SITE_URL}mg/1/${one[i]}">动漫</a></td>
+                        %elif one[i] == 'huyu':
+                            <td><a href="${SITE_URL}mg/1/${one[i]}">互娱</a></td>
+                        %elif one[i] == 'zonggongsi':
+                            <td><a href="${SITE_URL}mg/1/${one[i]}">总公司</a></td>
+                        %elif one[i] == 'shixun':
+                            <td><a href="${SITE_URL}mg/1/${one[i]}">视讯</a></td>
+                        %elif one[i] == 'shumei':
+                            <td><a href="${SITE_URL}mg/1/${one[i]}">数媒</a></td>
+                        %elif one[i] == 'yinyue':
+                            <td><a href="${SITE_URL}mg/1/${one[i]}">音乐</a></td>
+                        %endif
+
+                    % else:
+                        <td>${one[i]}</td>
+                    % endif
+                % endfor
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${one_sum_1}</td>
+                %for i in xrange(10):
+                     %if two[0] != ' ':
+                        <td>${two[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+            <tr>
+                <td colspan="12">
+                    </td>
+            </tr>
+
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if three[i] != '无':
+                        %if three[i] == 'dongman':
+                            <td><a href="${SITE_URL}mg/1/${three[i]}">动漫</a></td>
+                        %elif three[i] == 'huyu':
+                            <td><a href="${SITE_URL}mg/1/${three[i]}">互娱</a></td>
+                        %elif three[i] == 'zonggongsi':
+                            <td><a href="${SITE_URL}mg/1/${three[i]}">总公司</a></td>
+                        %elif three[i] == 'shixun':
+                            <td><a href="${SITE_URL}mg/1/${three[i]}">视讯</a></td>
+                        %elif three[i] == 'shumei':
+                            <td><a href="${SITE_URL}mg/1/${three[i]}">数媒</a></td>
+                        %elif three[i] == 'yinyue':
+                            <td><a href="${SITE_URL}mg/1/${three[i]}">音乐</a></td>
+                        %endif
+                    %else:
+                        <td>${three[i]}</td>
+                    %endif
+                %endfor
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${one_sum_10}</td>
+                %for i in xrange(10):
+                    %if fore[0] != ' ':
+                        <td>${fore[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+        <tr>
+            <td colspan="13" bgcolor="#dcdcdc">
+
+            </td>
+        </tr>
+
+
+              <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}mg/mg/sffy"><p style="font-size: 20px;text-align: center;"><br><br>上发费用</p></a></td>
+             </tr>
+        <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if cuo_five[i] != '无':
+                        %if cuo_five[i] == 'dongman':
+                            <td><a href="${SITE_URL}mg/1/${cuo_five[i]}">动漫</a></td>
+                        %elif cuo_five[i] == 'huyu':
+                            <td><a href="${SITE_URL}mg/1/${cuo_five[i]}">互娱</a></td>
+                        %elif cuo_five[i] == 'zonggongsi':
+                            <td><a href="${SITE_URL}mg/1/${cuo_five[i]}">总公司</a></td>
+                        %elif cuo_five[i] == 'shixun':
+                            <td><a href="${SITE_URL}mg/1/${cuo_five[i]}">视讯</a></td>
+                        %elif cuo_five[i] == 'shumei':
+                            <td><a href="${SITE_URL}mg/1/${cuo_five[i]}">数媒</a></td>
+                        %elif cuo_five[i] == 'yinyue':
+                            <td><a href="${SITE_URL}mg/1/${cuo_five[i]}">音乐</a></td>
+                        %endif
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+            <tr>
+                <td>波动</td>
+                <td>${fore_sum_1}</td>
+                %for i in xrange(10):
+                    %if cuo_six[0] != ' ':
+                        <td>${cuo_six[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+
+        <tr>
+                <td colspan="12"> </td>
+            </tr>
+
+                    <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if cuo_seven[i] != '无':
+                        %if cuo_seven[i] == 'dongman':
+                            <td><a href="${SITE_URL}mg/1/${cuo_seven[i]}">动漫</a></td>
+                        %elif cuo_seven[i] == 'huyu':
+                            <td><a href="${SITE_URL}mg/1/${cuo_seven[i]}">互娱</a></td>
+                        %elif cuo_seven[i] == 'zonggongsi':
+                            <td><a href="${SITE_URL}mg/1/${cuo_seven[i]}">总公司</a></td>
+                        %elif cuo_seven[i] == 'shixun':
+                            <td><a href="${SITE_URL}mg/1/${cuo_seven[i]}">视讯</a></td>
+                        %elif cuo_seven[i] == 'shumei':
+                            <td><a href="${SITE_URL}mg/1/${cuo_seven[i]}">数媒</a></td>
+                        %elif cuo_seven[i] == 'yinyue':
+                            <td><a href="${SITE_URL}mg/1/${cuo_seven[i]}">音乐</a></td>
+                        %endif
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+            <tr>
+                <td>波动</td>
+                <td>${fore_sum_10}</td>
+                %for i in xrange(10):
+                    %if cuo_eight[0] != ' ':
+                        <td>${cuo_eight[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+        <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}mg/mg/xf"><p style="font-size: 20px;text-align: center;"><br><br>下发</p></a></td>
+
+             </tr>
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                % for i in xrange(10):
+                    % if wu[i] != '无':
+                        <td><a href="${SITE_URL}mg/3/${wu[i]}">${wu[i]}</a></td>
+                    % else:
+                        <td>${wu[i]}</td>
+                    % endif
+                % endfor
+
+
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${two_sum_1}</td>
+                %for i in xrange(10):
+                    %if liu[0] != ' ':
+                        <td>${liu[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+           <tr>
+                <td colspan="12">
+                    </td>
+            </tr>
+
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if qi[i] != '无':
+
+                        <td><a href="${SITE_URL}mg/3/${qi[i]}">${qi[i]}</a></td>
+                    %elif one[i] == '无':
+                        <td>${qi[i]} </td>
+                    %endif
+                %endfor
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${two_sum_10}</td>
+                %for i in xrange(10):
+                    %if ba[0] != ' ':
+                        <td>${ba[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+        <tr>
+            <td colspan="13" bgcolor="#dcdcdc">
+
+            </td>
+        </tr>
+
+
+            <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}mg/mg/cuod"><p style="font-size: 20px;text-align: center;"><br><br>错单</p></a></td>
+             </tr>
+            <tr>
+                <td>代码</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if cuo_one[i] != '无':
+                        <td><a href="${SITE_URL}mg/4/${cuo_one[i]}">${cuo_one[i]}</a></td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${three_sum_1}</td>
+                %for i in xrange(10):
+                    %if cuo_two[0] != ' ':
+                        <td>${cuo_two[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+            <tr>
+                <td colspan="12"> </td>
+            </tr>
+
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if cuo_three[i] != '无':
+                        <td><a href="${SITE_URL}mg/4/${cuo_three[i]}">${cuo_three[i]}</a></td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+            <tr>
+                <td>波动</td>
+                <td>${three_sum_10}</td>
+                %for i in xrange(10):
+                    %if cuo_fore[0] != ' ':
+                        <td>${cuo_fore[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+
+
+                <tr>
+            <td colspan="13" bgcolor="#dcdcdc">
+
+            </td>
+        </tr>
+
+
+
+    <tr>
+        <td colspan="13" bgcolor="#dcdcdc">
+
+        </td>
+    </tr>
+
+
+
+
+	</table>
+
+	<div class="panel-footer">
+
+	</div>
+</div>
+</body>
+</%block>

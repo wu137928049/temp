@@ -1,0 +1,252 @@
+<%inherit file="/new_base.html"/>
+
+	<%block name='zhong'>
+        <li style="position: relative;right: 30px;"> <a href="${SITE_URL}psms/xq"><span>详情</span></a> </li>
+                 </%block>
+
+
+<%block name='content'>
+<body style="margin:50px" class="table-responsive">
+            <!-- 如果上发下发或者错单有今天或者昨天为零，今天不为零的情况，那么就滚动显示在业务线顶部。 如果没有，不滚动，什么也不显示。-->
+            <div class="king-page-topbar">
+                <h3 class="king-topbar-title mb0">
+                    %if zd_zero.get('sf') != '':
+                    <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                        <span>
+                            上发突变为0:
+                            %for i in zd_zero['sf']:
+                                ${i}
+                            %endfor
+                        </span>
+                    </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+
+                    %if zd_zero.get('xf') != '':
+                    <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                        <span>
+                            下发突变为0:
+                            %for i in zd_zero['xf']:
+                                ${i}
+                            %endfor
+                        </span>
+                    </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+                    %if zd_zero.get('cd') != '':
+                        <marquee behavior="scroll" direction="left" scrolldelay="30" onmouseover=this.stop() onmouseout=this.start()>
+                            <span>
+                            错单突变为零:
+                            %for i in zd_zero['cd']:
+                                ${i}
+                            %endfor
+                        </span>
+                        </marquee>
+
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    %endif
+                    <span class="success"></span>
+                </h3>
+           <ol class="breadcrumb">
+
+            <li><a href="${SITE_URL}home/${request.user}">首页</a></li>
+        <li class="active">PSMS业务波动汇总</li>
+        </ol>
+            </div>
+            <!-- 面板 编辑 开始 -->
+
+<div class="panel panel-success" style="width: 90%;position: relative;left: 5%;bottom: 3%">
+	<div class="panel-heading">
+		<h3 class="panel-title" style="text-align: center;font-size: 20px;">PSMS业务波动数据汇总</h3>
+	</div>
+	<table class="table">
+         <th colspan="13" bgcolor=""></th>
+            <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}psms/psms/sf"><p style="font-size: 20px;text-align: center"><br><br>上发</p></a></td>
+             </tr>
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                % for i in xrange(10):
+                    % if one[i] != '无':
+                        <td><a href="${SITE_URL}psms/1/${one[i]}">${one[i]}</a></td>
+                    % else:
+                        <td>${one[i]}</td>
+                    % endif
+                % endfor
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${one_sum_1}</td>
+                %for i in xrange(10):
+                     %if two[0] != ' ':
+                        <td>${two[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+            <tr>
+                <td colspan="12">
+                    </td>
+            </tr>
+
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if three[i] != '无':
+                        <td><a href="${SITE_URL}psms/1/${three[i]}">${three[i]}</a></td>
+                    %else:
+                        <td>${three[i]}</td>
+                    %endif
+                %endfor
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${one_sum_10}</td>
+                %for i in xrange(10):
+                    %if fore[0] != ' ':
+                        <td>${fore[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+        <tr>
+            <td colspan="13" bgcolor="#dcdcdc">
+
+            </td>
+        </tr>
+
+
+        <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}psms/psms/xf"><p style="font-size: 20px;text-align: center;"><br><br>下发</p></a></td>
+
+             </tr>
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                % for i in xrange(10):
+                    % if wu[i] != '无':
+                        <td><a href="${SITE_URL}psms/2/${wu[i]}">${wu[i]}</a></td>
+                    % else:
+                        <td>${wu[i]}</td>
+                    % endif
+                % endfor
+
+
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${two_sum_1}</td>
+                %for i in xrange(10):
+                    %if liu[0] != ' ':
+                        <td>${liu[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+           <tr>
+                <td colspan="12">
+                    </td>
+            </tr>
+
+            <tr>
+                <td>省份</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if qi[i] != '无':
+
+                        <td><a href="${SITE_URL}psms/2/${qi[i]}">${qi[i]}</a></td>
+                    %elif one[i] == '无':
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${two_sum_10}</td>
+                %for i in xrange(10):
+                    %if ba[0] != ' ':
+                        <td>${ba[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+        <tr>
+            <td colspan="13" bgcolor="#dcdcdc">
+
+            </td>
+        </tr>
+
+
+            <tr text-al>
+                <td rowspan="6"><a href="${SITE_URL}psms/psms/cuod"><p style="font-size: 20px;text-align: center;"><br><br>错单</p></a></td>
+             </tr>
+            <tr>
+                <td>代码</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if cuo_one[i] != '无':
+                        <td><a href="${SITE_URL}psms/3/${cuo_one[i]}">${cuo_one[i]}</a></td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+
+            </tr>
+            <tr>
+                <td>波动</td>
+                <td>${three_sum_1}</td>
+                %for i in xrange(10):
+                    %if cuo_two[0] != ' ':
+                        <td>${cuo_two[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+            <tr>
+                <td colspan="12"> </td>
+            </tr>
+
+            <tr>
+                <td>代码</td>
+                <td>sum</td>
+                %for i in xrange(10):
+                    %if cuo_three[i] != '无':
+                        <td><a href="${SITE_URL}psms/3/${cuo_three[i]}">${cuo_three[i]}</a></td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+            <tr>
+                <td>波动</td>
+                <td>${three_sum_10}</td>
+                %for i in xrange(10):
+                    %if cuo_fore[0] != ' ':
+                        <td>${cuo_fore[i]}</td>
+                    %else:
+                        <td> </td>
+                    %endif
+                %endfor
+            </tr>
+
+	</table>
+
+	<div class="panel-footer">
+
+	</div>
+</div>
+</body>
+</%block>

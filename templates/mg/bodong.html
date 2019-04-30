@@ -1,0 +1,160 @@
+<%inherit file="/base.html"/>
+
+ <style>
+    td{
+        text-align:center;
+        width:20px;
+        font-weight:bold;
+    }
+
+
+</style>
+
+
+<body>
+<div class="king-page-box">
+        <div class="king-layout1-header">
+            <nav role="navigation" class="navbar navbar-default king-horizontal-nav3     f14">
+                <div class="nav-container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bk-example-navbar-collapse-3">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="${SITE_URL}home/${request.user}">
+                            <img src="${STATIC_URL}daohang/test_files/logo.png" alt="" class="logo"> </a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-responsive-collapse" id="bk-example-navbar-collapse-3">
+                        <ul class="nav navbar-nav ">
+                            <!--<li :class="{'bk-cur':item.active}"  v-for="item in renderData.items">-->
+                            <li class="bk-cur"> <a href="javascript:void(0);"><span>波动</span></a> </li>
+
+                            <li><a href="${SITE_URL}mg/mg/sf">上发波动</a></li>
+                            <li><a href="${SITE_URL}mg/mg/sffy">上发费用波动</a></li>
+                            <li><a href="${SITE_URL}mg/mg/xf">下发波动</a></li>
+                            <li><a href="${SITE_URL}mg/mg/cuod">错单波动</a></li>
+
+
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="position: relative;right: 100px;"><a href="${SITE_URL}mg/1"><span>返回上一级</span></a></li>
+
+                            <li  style="position: relative;right:60px;">
+                                <a href="javascript:;">
+                                    <span>用户:${request.user}</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <span style="position: relative;top: 5px;right: 70px;"><img src="${STATIC_URL}uploads/${request.session['icon']}" width="40px" height="40px" class="img-circle"></span>
+                            </li>
+
+                            <li style="position: relative;right: 50px;" >
+                                <a href="${SITE_URL}psms/logout">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    </div>
+                 </nav>
+                </div>
+            <div class="king-page-topbar ">
+                <h3 class="king-topbar-title mb0">
+                    <span></span>
+                </h3>
+                <ul class="breadcrumb king-breadcrumb pl0 bg-transparent">
+                    &nbsp;&nbsp;&nbsp;
+                    当前位置:
+                    <li>
+                        <a href="${SITE_URL}home/${request.user}">首页</a>-
+                        <a href="${SITE_URL}mg/1">MG</a>-
+                        <a href="javascript:void(0);">${send_type}波动</a>
+                    </li>
+                </ul>
+            </div>
+
+ <table class="table table-bordered" style="width:1200px;height:500px;margin:auto;">
+
+     <th colspan="17" style="text-align:center;">${send_type}波动数据</th>
+
+     <tr>
+         <td>省份</td>
+         %for i in xrange(bd):
+
+            <td>${sdm_mingc[i]}</td>
+
+         %endfor
+     </tr>
+     <tr>
+        <td>OneD_Rate</td>
+         %for i in xrange(bd):
+            %if one_bsbz[i] <= 10:
+                <td>${one_dr_list[i]}</td>
+            %else:
+                <td bgcolor="red">${one_dr_list[i]}</td>
+            %endif
+         %endfor
+     </tr>
+     <tr>
+         <td>TenD_Rate</td>
+         %for i in xrange(bd):
+             %if ten_bsbz[i] < 10:
+                <td>${ten_tr_list[i]}</td>
+            %else:
+                <td bgcolor="red">${ten_tr_list[i]}</td>
+            %endif
+         %endfor
+     </tr>
+
+
+    ##如果bd大于15表示是上发或者下发的数据。这时候才会有下面的代码。
+     % if bd > 15:
+          <tr>
+         <td>省份</td>
+         %for i in xrange(bd,cd):
+            <td>${sdm_mingc[i]}</td>
+         %endfor
+
+
+     </tr>
+     <tr>
+        <td>OneD_Rate</td>
+         %for i in xrange(bd,cd):
+            %if one_bsbz[i] <= 10:
+                <td>${one_dr_list[i]}</td>
+            %else:
+                <td bgcolor="red">${one_dr_list[i]}</td>
+            %endif
+         %endfor
+
+     </tr>
+     <tr>
+         <td>TenD_Rate</td>
+         %for i in xrange(bd,cd):
+            %if ten_bsbz[i] < 10:
+                <td>${ten_tr_list[i]}</td>
+            %else:
+                <td bgcolor="red">${ten_tr_list[i]}</td>
+            %endif
+         %endfor
+
+     </tr>
+     %endif
+
+
+     </table>
+    </div>
+</body>
+<div class="foot" id="footer" style="position: relative;top: -70px;">
+        <ul class="links ft" >
+          <li ><p class="copyright" >亚信科技 版权所有</p> </li>
+        </ul>
+</div>

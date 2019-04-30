@@ -1,0 +1,779 @@
+<%inherit file="/base.html"/>
+
+<head>
+    <script src="${STATIC_URL}js/echarts.min.js"></script>
+</head>
+
+<style>
+    html{
+        width:100%;
+        height:80%;
+    }
+        ::-webkit-scrollbar{
+display:none;
+}
+</style>
+
+<body>
+
+
+
+    <div style="font-size: 30px;text-align:center;"> ${leix}</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+<section name="ceshi" style="width: 1500px;height: 300px;">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/1"><div id="main" style="width: 250px;height:200px;float: left;margin-left: 40px"></div></a>
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/2"><div id="main2" style="width: 250px;height:200px;float: left;margin-left: 40px"></div></a>
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/3"><div id="main3" style="width: 250px;height:200px;float: left;margin-left: 40px"></div></a>
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/4"><div id="main4" style="width: 250px;height:200px;float: left;margin-left: 40px;"></div></a>
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/5"><div id="main5" style="width: 250px;height:200px;margin-left: 40px"></div></a>
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/6"><div id="main6" style="width: 250px;height:200px;float: left;margin-left: 330px"></div></a>
+    <a href="${SITE_URL}mg/xfdtxzs/${page}/7"><div id="main7" style="width: 250px;height:200px;float: left;margin-left: 40px"></div></a>
+
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '北上广重天'
+            },
+
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[0]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${beij[0]}', '${beij[1]}', '${beij[2]}', '${beij[3]}', '${beij[4]}',
+                    '${beij[5]}', '${beij[6]}', '${beij[7]}', '${beij[8]}', '${beij[9]}',
+                    '${beij[10]}', '${beij[11]}', '${beij[12]}', '${beij[13]}', '${beij[14]}',
+                    '${beij[15]}', '${beij[16]}', '${beij[17]}', '${beij[18]}', '${beij[19]}',
+                    '${beij[20]}', '${beij[21]}', '${beij[22]}', '${beij[23]}', '${beij[24]}',
+                    '${beij[25]}', '${beij[26]}', '${beij[27]}', '${beij[28]}', '${beij[29]}',
+                    '${beij[30]}', '${beij[31]}', '${beij[32]}', '${beij[33]}', '${beij[34]}',
+                    '${beij[35]}', '${beij[36]}', '${beij[37]}', '${beij[38]}', '${beij[39]}',]
+
+            },
+
+                {
+                    name: '${sdm[1]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${guangd[0]}', '${guangd[1]}', '${guangd[2]}', '${guangd[3]}', '${guangd[4]}',
+                        '${guangd[5]}', '${guangd[6]}', '${guangd[7]}', '${guangd[8]}', '${guangd[9]}',
+                        '${guangd[10]}', '${guangd[11]}', '${guangd[12]}', '${guangd[13]}', '${guangd[14]}',
+                        '${guangd[15]}', '${guangd[16]}', '${guangd[17]}', '${guangd[18]}', '${guangd[19]}',
+                        '${guangd[20]}', '${guangd[21]}', '${guangd[22]}', '${guangd[23]}', '${guangd[24]}',
+                        '${guangd[25]}', '${guangd[26]}', '${guangd[27]}', '${guangd[28]}', '${guangd[29]}',
+                        '${guangd[30]}', '${guangd[31]}', '${guangd[32]}', '${guangd[33]}', '${guangd[34]}',
+                        '${guangd[35]}', '${guangd[36]}', '${guangd[37]}', '${guangd[38]}', '${guangd[39]}',]
+                },
+
+                {
+                    name: '${sdm[2]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${shangh[0]}', '${shangh[1]}', '${shangh[2]}', '${shangh[3]}', '${shangh[4]}',
+                        '${shangh[5]}', '${shangh[6]}', '${shangh[7]}', '${shangh[8]}', '${shangh[9]}',
+                        '${shangh[10]}', '${shangh[11]}', '${shangh[12]}', '${shangh[13]}', '${shangh[14]}',
+                        '${shangh[15]}', '${shangh[16]}', '${shangh[17]}', '${shangh[18]}', '${shangh[19]}',
+                        '${shangh[20]}', '${shangh[21]}', '${shangh[22]}', '${shangh[23]}', '${shangh[24]}',
+                        '${shangh[25]}', '${shangh[26]}', '${shangh[27]}', '${shangh[28]}', '${shangh[29]}',
+                        '${shangh[30]}', '${shangh[31]}', '${shangh[32]}', '${shangh[33]}', '${shangh[34]}',
+                        '${shangh[35]}', '${shangh[36]}', '${shangh[37]}', '${shangh[38]}', '${shangh[39]}']
+                },
+
+                {
+                    name: '${sdm[3]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${tianj[0]}', '${tianj[1]}', '${tianj[2]}', '${tianj[3]}', '${tianj[4]}',
+                        '${tianj[5]}', '${tianj[6]}', '${tianj[7]}', '${tianj[8]}', '${tianj[9]}',
+                        '${tianj[10]}', '${tianj[11]}', '${tianj[12]}', '${tianj[13]}', '${tianj[14]}',
+                        '${tianj[15]}', '${tianj[16]}', '${tianj[17]}', '${tianj[18]}', '${tianj[19]}',
+                        '${tianj[20]}', '${tianj[21]}', '${tianj[22]}', '${tianj[23]}', '${tianj[24]}',
+                        '${tianj[25]}', '${tianj[26]}', '${tianj[27]}', '${tianj[28]}', '${tianj[29]}',
+                        '${tianj[30]}', '${tianj[31]}', '${tianj[32]}', '${tianj[33]}', '${tianj[34]}',
+                        '${tianj[35]}', '${tianj[36]}', '${tianj[37]}', '${tianj[38]}', '${tianj[39]}',]
+                },
+
+
+                {
+                    name: '${sdm[4]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${chongq[0]}', '${chongq[1]}', '${chongq[2]}', '${chongq[3]}', '${chongq[4]}',
+                        '${chongq[5]}', '${chongq[6]}', '${chongq[7]}', '${chongq[8]}', '${chongq[9]}',
+                        '${chongq[10]}', '${chongq[11]}', '${chongq[12]}', '${chongq[13]}', '${chongq[14]}',
+                        '${chongq[15]}', '${chongq[16]}', '${chongq[17]}', '${chongq[18]}', '${chongq[19]}',
+                        '${chongq[20]}', '${chongq[21]}', '${chongq[22]}', '${chongq[23]}', '${chongq[24]}',
+                        '${chongq[25]}', '${chongq[26]}', '${chongq[27]}', '${chongq[28]}', '${chongq[29]}',
+                        '${chongq[30]}', '${chongq[31]}', '${chongq[32]}', '${chongq[33]}', '${chongq[34]}',
+                        '${chongq[35]}', '${chongq[36]}', '${chongq[37]}', '${chongq[38]}', '${chongq[39]}',]
+
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    </script>
+
+
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '辽宁江苏湖北四川陕西'
+            },
+
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[5]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${liaon[0]}', '${liaon[1]}', '${liaon[2]}', '${liaon[3]}', '${liaon[4]}',
+                    '${liaon[5]}', '${liaon[6]}', '${liaon[7]}', '${liaon[8]}', '${liaon[9]}',
+                    '${liaon[10]}', '${liaon[11]}', '${liaon[12]}', '${liaon[13]}', '${liaon[14]}',
+                    '${liaon[15]}', '${liaon[16]}', '${liaon[17]}', '${liaon[18]}', '${liaon[19]}',
+                    '${liaon[20]}', '${liaon[21]}', '${liaon[22]}', '${liaon[23]}', '${liaon[24]}',
+                    '${liaon[25]}', '${liaon[26]}', '${liaon[27]}', '${liaon[28]}', '${liaon[29]}',
+                    '${liaon[30]}', '${liaon[31]}', '${liaon[32]}', '${liaon[33]}', '${liaon[34]}',
+                    '${liaon[35]}', '${liaon[36]}', '${liaon[37]}', '${liaon[38]}', '${liaon[39]}',]
+
+            },
+
+                {
+                    name: '${sdm[6]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${jiangs[0]}', '${jiangs[1]}', '${jiangs[2]}', '${jiangs[3]}', '${jiangs[4]}',
+                        '${jiangs[5]}', '${jiangs[6]}', '${jiangs[7]}', '${jiangs[8]}', '${jiangs[9]}',
+                        '${jiangs[10]}', '${jiangs[11]}', '${jiangs[12]}', '${jiangs[13]}', '${jiangs[14]}',
+                        '${jiangs[15]}', '${jiangs[16]}', '${jiangs[17]}', '${jiangs[18]}', '${jiangs[19]}',
+                        '${jiangs[20]}', '${jiangs[21]}', '${jiangs[22]}', '${jiangs[23]}', '${jiangs[24]}',
+                        '${jiangs[25]}', '${jiangs[26]}', '${jiangs[27]}', '${jiangs[28]}', '${jiangs[29]}',
+                        '${jiangs[30]}', '${jiangs[31]}', '${jiangs[32]}', '${jiangs[33]}', '${jiangs[34]}',
+                        '${jiangs[35]}', '${jiangs[36]}', '${jiangs[37]}', '${jiangs[38]}', '${jiangs[39]}']
+                },
+
+                {
+                    name: '${sdm[7]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${hub[0]}', '${hub[1]}', '${hub[2]}', '${hub[3]}', '${hub[4]}',
+                        '${hub[5]}', '${hub[6]}', '${hub[7]}', '${hub[8]}', '${hub[9]}',
+                        '${hub[10]}', '${hub[11]}', '${hub[12]}', '${hub[13]}', '${hub[14]}',
+                        '${hub[15]}', '${hub[16]}', '${hub[17]}', '${hub[18]}', '${hub[19]}',
+                        '${hub[20]}', '${hub[21]}', '${hub[22]}', '${hub[23]}', '${hub[24]}',
+                        '${hub[25]}', '${hub[26]}', '${hub[27]}', '${hub[28]}', '${hub[29]}',
+                        '${hub[30]}', '${hub[31]}', '${hub[32]}', '${hub[33]}', '${hub[34]}',
+                        '${hub[35]}', '${hub[36]}', '${hub[37]}', '${hub[38]}', '${hub[39]}']
+                },
+
+                {
+                    name: '${sdm[8]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${sic[0]}', '${sic[1]}', '${sic[2]}', '${sic[3]}', '${sic[4]}',
+                        '${sic[5]}', '${sic[6]}', '${sic[7]}', '${sic[8]}', '${sic[9]}',
+                        '${sic[10]}', '${sic[11]}', '${sic[12]}', '${sic[13]}', '${sic[14]}',
+                        '${sic[15]}', '${sic[16]}', '${sic[17]}', '${sic[18]}', '${sic[19]}',
+                        '${sic[20]}', '${sic[21]}', '${sic[22]}', '${sic[23]}', '${sic[24]}',
+                        '${sic[25]}', '${sic[26]}', '${sic[27]}', '${sic[28]}', '${sic[29]}',
+                        '${sic[30]}', '${sic[31]}', '${sic[32]}', '${sic[33]}', '${sic[34]}',
+                        '${sic[35]}', '${sic[36]}', '${sic[37]}', '${sic[38]}', '${sic[39]}']
+                },
+
+
+                {
+                    name: '${sdm[9]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量，陕西
+                    data: ['${shanxx[0]}', '${shanxx[1]}', '${shanxx[2]}', '${shanxx[3]}', '${shanxx[4]}',
+                        '${shanxx[5]}', '${shanxx[6]}', '${shanxx[7]}', '${shanxx[8]}', '${shanxx[9]}',
+                        '${shanxx[10]}', '${shanxx[11]}', '${shanxx[12]}', '${shanxx[13]}', '${shanxx[14]}',
+                        '${shanxx[15]}', '${shanxx[16]}', '${shanxx[17]}', '${shanxx[18]}', '${shanxx[19]}',
+                        '${shanxx[20]}', '${shanxx[21]}', '${shanxx[22]}', '${shanxx[23]}', '${shanxx[24]}',
+                        '${shanxx[25]}', '${shanxx[26]}', '${shanxx[27]}', '${shanxx[28]}', '${shanxx[29]}',
+                        '${shanxx[30]}', '${shanxx[31]}', '${shanxx[32]}', '${shanxx[33]}', '${shanxx[34]}',
+                        '${shanxx[35]}', '${shanxx[36]}', '${shanxx[37]}', '${shanxx[38]}', '${shanxx[39]}']
+
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    </script>
+
+
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main3'));
+
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '河北山西河南吉林黑龙江'
+            },
+
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[10]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${heb[0]}', '${heb[1]}', '${heb[2]}', '${heb[3]}', '${heb[4]}',
+                    '${heb[5]}', '${heb[6]}', '${heb[7]}', '${heb[8]}', '${heb[9]}',
+                    '${heb[10]}', '${heb[11]}', '${heb[12]}', '${heb[13]}', '${heb[14]}',
+                    '${heb[15]}', '${heb[16]}', '${heb[17]}', '${heb[18]}', '${heb[19]}',
+                    '${heb[20]}', '${heb[21]}', '${heb[22]}', '${heb[23]}', '${heb[24]}',
+                    '${heb[25]}', '${heb[26]}', '${heb[27]}', '${heb[28]}', '${heb[29]}',
+                    '${heb[30]}', '${heb[31]}', '${heb[32]}', '${heb[33]}', '${heb[34]}',
+                    '${heb[35]}', '${heb[36]}', '${heb[37]}', '${heb[38]}', '${heb[39]}']
+
+            },
+
+                {
+                    name: '${sdm[11]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${shanx[0]}', '${shanx[1]}', '${shanx[2]}', '${shanx[3]}', '${shanx[4]}',
+                        '${shanx[5]}', '${shanx[6]}', '${shanx[7]}', '${shanx[8]}', '${shanx[9]}',
+                        '${shanx[10]}', '${shanx[11]}', '${shanx[12]}', '${shanx[13]}', '${shanx[14]}',
+                        '${shanx[15]}', '${shanx[16]}', '${shanx[17]}', '${shanx[18]}', '${shanx[19]}',
+                        '${shanx[20]}', '${shanx[21]}', '${shanx[22]}', '${shanx[23]}', '${shanx[24]}',
+                        '${shanx[25]}', '${shanx[26]}', '${shanx[27]}', '${shanx[28]}', '${shanx[29]}',
+                        '${shanx[30]}', '${shanx[31]}', '${shanx[32]}', '${shanx[33]}', '${shanx[34]}',
+                        '${shanx[35]}', '${shanx[36]}', '${shanx[37]}', '${shanx[38]}', '${shanx[39]}']
+                },
+
+                {
+                    name: '${sdm[12]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${hen[0]}', '${hen[1]}', '${hen[2]}', '${hen[3]}', '${hen[4]}',
+                        '${hen[5]}', '${hen[6]}', '${hen[7]}', '${hen[8]}', '${hen[9]}',
+                        '${hen[10]}', '${hen[11]}', '${hen[12]}', '${hen[13]}', '${hen[14]}',
+                        '${hen[15]}', '${hen[16]}', '${hen[17]}', '${hen[18]}', '${hen[19]}',
+                        '${hen[20]}', '${hen[21]}', '${hen[22]}', '${hen[23]}', '${hen[24]}',
+                        '${hen[25]}', '${hen[26]}', '${hen[27]}', '${hen[28]}', '${hen[29]}',
+                        '${hen[30]}', '${hen[31]}', '${hen[32]}', '${hen[33]}', '${hen[34]}',
+                        '${hen[35]}', '${hen[36]}', '${hen[37]}', '${hen[38]}', '${hen[39]}']
+                },
+
+                {
+                    name: '${sdm[13]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${jil[0]}', '${jil[1]}', '${jil[2]}', '${jil[3]}', '${jil[4]}',
+                        '${jil[5]}', '${jil[6]}', '${jil[7]}', '${jil[8]}', '${jil[9]}',
+                        '${jil[10]}', '${jil[11]}', '${jil[12]}', '${jil[13]}', '${jil[14]}',
+                        '${jil[15]}', '${jil[16]}', '${jil[17]}', '${jil[18]}', '${jil[19]}',
+                        '${jil[20]}', '${jil[21]}', '${jil[22]}', '${jil[23]}', '${jil[24]}',
+                        '${jil[25]}', '${jil[26]}', '${jil[27]}', '${jil[28]}', '${jil[29]}',
+                        '${jil[30]}', '${jil[31]}', '${jil[32]}', '${jil[33]}', '${jil[34]}',
+                        '${jil[35]}', '${jil[36]}', '${jil[37]}', '${jil[38]}', '${jil[39]}']
+                },
+
+
+                {
+                    name: '${sdm[14]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量，陕西
+                    data: ['${heilj[0]}', '${heilj[1]}', '${heilj[2]}', '${heilj[3]}', '${heilj[4]}',
+                        '${heilj[5]}', '${heilj[6]}', '${heilj[7]}', '${heilj[8]}', '${heilj[9]}',
+                        '${heilj[10]}', '${heilj[11]}', '${heilj[12]}', '${heilj[13]}', '${heilj[14]}',
+                        '${heilj[15]}', '${heilj[16]}', '${heilj[17]}', '${heilj[18]}', '${heilj[19]}',
+                        '${heilj[20]}', '${heilj[21]}', '${heilj[22]}', '${heilj[23]}', '${heilj[24]}',
+                        '${heilj[25]}', '${heilj[26]}', '${heilj[27]}', '${heilj[28]}', '${heilj[29]}',
+                        '${heilj[30]}', '${heilj[31]}', '${heilj[32]}', '${heilj[33]}', '${heilj[34]}',
+                        '${heilj[35]}', '${heilj[36]}', '${heilj[37]}', '${heilj[38]}', '${heilj[39]}']
+
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+
+    </script>
+
+
+            <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main4'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '内蒙山东安徽浙江福建'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[15]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${neimg[0]}', '${neimg[1]}', '${neimg[2]}', '${neimg[3]}', '${neimg[4]}',
+                    '${neimg[5]}', '${neimg[6]}', '${neimg[7]}', '${neimg[8]}', '${neimg[9]}',
+                    '${neimg[10]}', '${neimg[11]}', '${neimg[12]}', '${neimg[13]}', '${neimg[14]}',
+                    '${neimg[15]}', '${neimg[16]}', '${neimg[17]}', '${neimg[18]}', '${neimg[19]}',
+                    '${neimg[20]}', '${neimg[21]}', '${neimg[22]}', '${neimg[23]}', '${neimg[24]}',
+                    '${neimg[25]}', '${neimg[26]}', '${neimg[27]}', '${neimg[28]}', '${neimg[29]}',
+                    '${neimg[30]}', '${neimg[31]}', '${neimg[32]}', '${neimg[33]}', '${neimg[34]}',
+                    '${neimg[35]}', '${neimg[36]}', '${neimg[37]}', '${neimg[38]}', '${neimg[39]}']
+
+            },
+
+                {
+                    name: '${sdm[16]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${shand[0]}', '${shand[1]}', '${shand[2]}', '${shand[3]}', '${shand[4]}',
+                        '${shand[5]}', '${shand[6]}', '${shand[7]}', '${shand[8]}', '${shand[9]}',
+                        '${shand[10]}', '${shand[11]}', '${shand[12]}', '${shand[13]}', '${shand[14]}',
+                        '${shand[15]}', '${shand[16]}', '${shand[17]}', '${shand[18]}', '${shand[19]}',
+                        '${shand[20]}', '${shand[21]}', '${shand[22]}', '${shand[23]}', '${shand[24]}',
+                        '${shand[25]}', '${shand[26]}', '${shand[27]}', '${shand[28]}', '${shand[29]}',
+                        '${shand[30]}', '${shand[31]}', '${shand[32]}', '${shand[33]}', '${shand[34]}',
+                        '${shand[35]}', '${shand[36]}', '${shand[37]}', '${shand[38]}', '${shand[39]}']
+                },
+
+                {
+                    name: '${sdm[17]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${anh[0]}', '${anh[1]}', '${anh[2]}', '${anh[3]}', '${anh[4]}', '${anh[5]}',
+                        '${anh[6]}', '${anh[7]}', '${anh[8]}', '${anh[9]}', '${anh[10]}', '${anh[11]}',
+                        '${anh[12]}', '${anh[13]}', '${anh[14]}', '${anh[15]}', '${anh[16]}', '${anh[17]}',
+                        '${anh[18]}', '${anh[19]}', '${anh[20]}', '${anh[21]}', '${anh[22]}', '${anh[23]}',
+                        '${anh[24]}', '${anh[25]}', '${anh[26]}', '${anh[27]}', '${anh[28]}', '${anh[29]}',
+                        '${anh[30]}', '${anh[31]}', '${anh[32]}', '${anh[33]}', '${anh[34]}', '${anh[35]}',
+                        '${anh[36]}', '${anh[37]}', '${anh[38]}', '${anh[39]}']
+                },
+
+                {
+                    name: '${sdm[18]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${zhej[0]}', '${zhej[1]}', '${zhej[2]}', '${zhej[3]}', '${zhej[4]}',
+                        '${zhej[5]}', '${zhej[6]}', '${zhej[7]}', '${zhej[8]}', '${zhej[9]}',
+                        '${zhej[10]}', '${zhej[11]}', '${zhej[12]}', '${zhej[13]}', '${zhej[14]}',
+                        '${zhej[15]}', '${zhej[16]}', '${zhej[17]}', '${zhej[18]}', '${zhej[19]}',
+                        '${zhej[20]}', '${zhej[21]}', '${zhej[22]}', '${zhej[23]}', '${zhej[24]}',
+                        '${zhej[25]}', '${zhej[26]}', '${zhej[27]}', '${zhej[28]}', '${zhej[29]}',
+                        '${zhej[30]}', '${zhej[31]}', '${zhej[32]}', '${zhej[33]}', '${zhej[34]}',
+                        '${zhej[35]}', '${zhej[36]}', '${zhej[37]}', '${zhej[38]}', '${zhej[39]}']
+                },
+
+
+                {
+                    name: '${sdm[19]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量，陕西
+                    data: ['${fuj[0]}', '${fuj[1]}', '${fuj[2]}', '${fuj[3]}', '${fuj[4]}', '${fuj[5]}',
+                        '${fuj[6]}', '${fuj[7]}', '${fuj[8]}', '${fuj[9]}', '${fuj[10]}', '${fuj[11]}',
+                        '${fuj[12]}', '${fuj[13]}', '${fuj[14]}', '${fuj[15]}', '${fuj[16]}', '${fuj[17]}',
+                        '${fuj[18]}', '${fuj[19]}', '${fuj[20]}', '${fuj[21]}', '${fuj[22]}', '${fuj[23]}',
+                        '${fuj[24]}', '${fuj[25]}', '${fuj[26]}', '${fuj[27]}', '${fuj[28]}', '${fuj[29]}',
+                        '${fuj[30]}', '${fuj[31]}', '${fuj[32]}', '${fuj[33]}', '${fuj[34]}', '${fuj[35]}',
+                        '${fuj[36]}', '${fuj[37]}', '${fuj[38]}', '${fuj[39]}']
+
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+
+    </script>
+
+
+
+             <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main5'));
+
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '湖南广西江西贵州云南'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[20]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${hun[0]}', '${hun[1]}', '${hun[2]}', '${hun[3]}', '${hun[4]}', '${hun[5]}',
+                    '${hun[6]}', '${hun[7]}', '${hun[8]}', '${hun[9]}', '${hun[10]}', '${hun[11]}',
+                    '${hun[12]}', '${hun[13]}', '${hun[14]}', '${hun[15]}', '${hun[16]}', '${hun[17]}',
+                    '${hun[18]}', '${hun[19]}', '${hun[20]}', '${hun[21]}', '${hun[22]}', '${hun[23]}',
+                    '${hun[24]}', '${hun[25]}', '${hun[26]}', '${hun[27]}', '${hun[28]}', '${hun[29]}',
+                    '${hun[30]}', '${hun[31]}', '${hun[32]}', '${hun[33]}', '${hun[34]}', '${hun[35]}',
+                    '${hun[36]}', '${hun[37]}', '${hun[38]}', '${hun[39]}']
+
+            },
+
+                {
+                    name: '${sdm[21]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${guangx[0]}', '${guangx[1]}', '${guangx[2]}', '${guangx[3]}', '${guangx[4]}',
+                        '${guangx[5]}', '${guangx[6]}', '${guangx[7]}', '${guangx[8]}', '${guangx[9]}',
+                        '${guangx[10]}', '${guangx[11]}', '${guangx[12]}', '${guangx[13]}', '${guangx[14]}',
+                        '${guangx[15]}', '${guangx[16]}', '${guangx[17]}', '${guangx[18]}', '${guangx[19]}',
+                        '${guangx[20]}', '${guangx[21]}', '${guangx[22]}', '${guangx[23]}', '${guangx[24]}',
+                        '${guangx[25]}', '${guangx[26]}', '${guangx[27]}', '${guangx[28]}', '${guangx[29]}',
+                        '${guangx[30]}', '${guangx[31]}', '${guangx[32]}', '${guangx[33]}', '${guangx[34]}',
+                        '${guangx[35]}', '${guangx[36]}', '${guangx[37]}', '${guangx[38]}', '${guangx[39]}']
+                },
+
+                {
+                    name: '${sdm[22]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${jiangx[0]}', '${jiangx[1]}', '${jiangx[2]}', '${jiangx[3]}', '${jiangx[4]}',
+                        '${jiangx[5]}', '${jiangx[6]}', '${jiangx[7]}', '${jiangx[8]}', '${jiangx[9]}',
+                        '${jiangx[10]}', '${jiangx[11]}', '${jiangx[12]}', '${jiangx[13]}', '${jiangx[14]}',
+                        '${jiangx[15]}', '${jiangx[16]}', '${jiangx[17]}', '${jiangx[18]}', '${jiangx[19]}',
+                        '${jiangx[20]}', '${jiangx[21]}', '${jiangx[22]}', '${jiangx[23]}', '${jiangx[24]}',
+                        '${jiangx[25]}', '${jiangx[26]}', '${jiangx[27]}', '${jiangx[28]}', '${jiangx[29]}',
+                        '${jiangx[30]}', '${jiangx[31]}', '${jiangx[32]}', '${jiangx[33]}', '${jiangx[34]}',
+                        '${jiangx[35]}', '${jiangx[36]}', '${jiangx[37]}', '${jiangx[38]}', '${jiangx[39]}']
+                },
+
+                {
+                    name: '${sdm[23]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${guiz[0]}', '${guiz[1]}', '${guiz[2]}', '${guiz[3]}', '${guiz[4]}',
+                        '${guiz[5]}', '${guiz[6]}', '${guiz[7]}', '${guiz[8]}', '${guiz[9]}',
+                        '${guiz[10]}', '${guiz[11]}', '${guiz[12]}', '${guiz[13]}', '${guiz[14]}',
+                        '${guiz[15]}', '${guiz[16]}', '${guiz[17]}', '${guiz[18]}', '${guiz[19]}',
+                        '${guiz[20]}', '${guiz[21]}', '${guiz[22]}', '${guiz[23]}', '${guiz[24]}',
+                        '${guiz[25]}', '${guiz[26]}', '${guiz[27]}', '${guiz[28]}', '${guiz[29]}',
+                        '${guiz[30]}', '${guiz[31]}', '${guiz[32]}', '${guiz[33]}', '${guiz[34]}',
+                        '${guiz[35]}', '${guiz[36]}', '${guiz[37]}', '${guiz[38]}', '${guiz[39]}']
+                },
+
+
+                {
+                    name: '${sdm[24]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量，陕西
+                    data: ['${yunn[0]}', '${yunn[1]}', '${yunn[2]}', '${yunn[3]}', '${yunn[4]}',
+                        '${yunn[5]}', '${yunn[6]}', '${yunn[7]}', '${yunn[8]}', '${yunn[9]}',
+                        '${yunn[10]}', '${yunn[11]}', '${yunn[12]}', '${yunn[13]}', '${yunn[14]}',
+                        '${yunn[15]}', '${yunn[16]}', '${yunn[17]}', '${yunn[18]}', '${yunn[19]}',
+                        '${yunn[20]}', '${yunn[21]}', '${yunn[22]}', '${yunn[23]}', '${yunn[24]}',
+                        '${yunn[25]}', '${yunn[26]}', '${yunn[27]}', '${yunn[28]}', '${yunn[29]}',
+                        '${yunn[30]}', '${yunn[31]}', '${yunn[32]}', '${yunn[33]}', '${yunn[34]}',
+                        '${yunn[35]}', '${yunn[36]}', '${yunn[37]}', '${yunn[38]}', '${yunn[39]}']
+
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    </script>
+
+
+             <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main6'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '西藏海南甘肃宁夏青海新疆'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: '${sdm[25]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${xiz[0]}', '${xiz[1]}', '${xiz[2]}', '${xiz[3]}', '${xiz[4]}', '${xiz[5]}',
+                    '${xiz[6]}', '${xiz[7]}', '${xiz[8]}', '${xiz[9]}', '${xiz[10]}', '${xiz[11]}',
+                    '${xiz[12]}', '${xiz[13]}', '${xiz[14]}', '${xiz[15]}', '${xiz[16]}', '${xiz[17]}',
+                    '${xiz[18]}', '${xiz[19]}', '${xiz[20]}', '${xiz[21]}', '${xiz[22]}', '${xiz[23]}',
+                    '${xiz[24]}', '${xiz[25]}', '${xiz[26]}', '${xiz[27]}', '${xiz[28]}', '${xiz[29]}',
+                    '${xiz[30]}', '${xiz[31]}', '${xiz[32]}', '${xiz[33]}', '${xiz[34]}', '${xiz[35]}',
+                    '${xiz[36]}', '${xiz[37]}', '${xiz[38]}', '${xiz[39]}']
+
+            },
+
+                {
+                    name: '${sdm[26]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${hain[0]}', '${hain[1]}', '${hain[2]}', '${hain[3]}', '${hain[4]}',
+                        '${hain[5]}', '${hain[6]}', '${hain[7]}', '${hain[8]}', '${hain[9]}',
+                        '${hain[10]}', '${hain[11]}', '${hain[12]}', '${hain[13]}', '${hain[14]}',
+                        '${hain[15]}', '${hain[16]}', '${hain[17]}', '${hain[18]}', '${hain[19]}',
+                        '${hain[20]}', '${hain[21]}', '${hain[22]}', '${hain[23]}', '${hain[24]}',
+                        '${hain[25]}', '${hain[26]}', '${hain[27]}', '${hain[28]}', '${hain[29]}',
+                        '${hain[30]}', '${hain[31]}', '${hain[32]}', '${hain[33]}', '${hain[34]}',
+                        '${hain[35]}', '${hain[36]}', '${hain[37]}', '${hain[38]}', '${hain[39]}']
+                },
+
+                {
+                    name: '${sdm[27]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${gans[0]}', '${gans[1]}', '${gans[2]}', '${gans[3]}', '${gans[4]}',
+                        '${gans[5]}', '${gans[6]}', '${gans[7]}', '${gans[8]}', '${gans[9]}',
+                        '${gans[10]}', '${gans[11]}', '${gans[12]}', '${gans[13]}', '${gans[14]}',
+                        '${gans[15]}', '${gans[16]}', '${gans[17]}', '${gans[18]}', '${gans[19]}',
+                        '${gans[20]}', '${gans[21]}', '${gans[22]}', '${gans[23]}', '${gans[24]}',
+                        '${gans[25]}', '${gans[26]}', '${gans[27]}', '${gans[28]}', '${gans[29]}',
+                        '${gans[30]}', '${gans[31]}', '${gans[32]}', '${gans[33]}', '${gans[34]}',
+                        '${gans[35]}', '${gans[36]}', '${gans[37]}', '${gans[38]}', '${gans[39]}']
+                },
+
+                {
+                    name: '${sdm[28]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                    data: ['${ningx[0]}', '${ningx[1]}', '${ningx[2]}', '${ningx[3]}', '${ningx[4]}',
+                        '${ningx[5]}', '${ningx[6]}', '${ningx[7]}', '${ningx[8]}', '${ningx[9]}',
+                        '${ningx[10]}', '${ningx[11]}', '${ningx[12]}', '${ningx[13]}', '${ningx[14]}',
+                        '${ningx[15]}', '${ningx[16]}', '${ningx[17]}', '${ningx[18]}', '${ningx[19]}',
+                        '${ningx[20]}', '${ningx[21]}', '${ningx[22]}', '${ningx[23]}', '${ningx[24]}',
+                        '${ningx[25]}', '${ningx[26]}', '${ningx[27]}', '${ningx[28]}', '${ningx[29]}',
+                        '${ningx[30]}', '${ningx[31]}', '${ningx[32]}', '${ningx[33]}', '${ningx[34]}',
+                        '${ningx[35]}', '${ningx[36]}', '${ningx[37]}', '${ningx[38]}', '${ningx[39]}']
+                },
+
+
+                {
+                    name: '${sdm[29]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量，陕西
+                    data: ['${qingh[0]}', '${qingh[1]}', '${qingh[2]}', '${qingh[3]}', '${qingh[4]}',
+                        '${qingh[5]}', '${qingh[6]}', '${qingh[7]}', '${qingh[8]}', '${qingh[9]}',
+                        '${qingh[10]}', '${qingh[11]}', '${qingh[12]}', '${qingh[13]}', '${qingh[14]}',
+                        '${qingh[15]}', '${qingh[16]}', '${qingh[17]}', '${qingh[18]}', '${qingh[19]}',
+                        '${qingh[20]}', '${qingh[21]}', '${qingh[22]}', '${qingh[23]}', '${qingh[24]}',
+                        '${qingh[25]}', '${qingh[26]}', '${qingh[27]}', '${qingh[28]}', '${qingh[29]}',
+                        '${qingh[30]}', '${qingh[31]}', '${qingh[32]}', '${qingh[33]}', '${qingh[34]}',
+                        '${qingh[35]}', '${qingh[36]}', '${qingh[37]}', '${qingh[38]}', '${qingh[39]}']
+
+                },
+
+                {
+                    name: '${sdm[30]}',
+                    type: 'line',
+                    //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量，陕西
+                    data: ['${xinj[0]}', '${xinj[1]}', '${xinj[2]}', '${xinj[3]}', '${xinj[4]}',
+                        '${xinj[5]}', '${xinj[6]}', '${xinj[7]}', '${xinj[8]}', '${xinj[9]}',
+                        '${xinj[10]}', '${xinj[11]}', '${xinj[12]}', '${xinj[13]}', '${xinj[14]}',
+                        '${xinj[15]}', '${xinj[16]}', '${xinj[17]}', '${xinj[18]}', '${xinj[19]}',
+                        '${xinj[20]}', '${xinj[21]}', '${xinj[22]}', '${xinj[23]}', '${xinj[24]}',
+                        '${xinj[25]}', '${xinj[26]}', '${xinj[27]}', '${xinj[28]}', '${xinj[29]}',
+                        '${xinj[30]}', '${xinj[31]}', '${xinj[32]}', '${xinj[33]}', '${xinj[34]}',
+                        '${xinj[35]}', '${xinj[36]}', '${xinj[37]}', '${xinj[38]}', '${xinj[39]}']
+
+                },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    </script>
+
+
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main7'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'sum'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['${d_date[1]}', '${d_date[2]}', '${d_date[3]}', '${d_date[4]}', '${d_date[5]}',
+                    '${d_date[6]}', '${d_date[7]}', '${d_date[8]}', '${d_date[9]}', '${d_date[10]}',
+                    '${d_date[11]}', '${d_date[12]}', '${d_date[13]}', '${d_date[14]}', '${d_date[15]}',
+                    '${d_date[16]}', '${d_date[17]}', '${d_date[18]}', '${d_date[19]}', '${d_date[20]}',
+                    '${d_date[21]}', '${d_date[22]}', '${d_date[23]}', '${d_date[24]}', '${d_date[25]}',
+                    '${d_date[26]}', '${d_date[27]}', '${d_date[28]}', '${d_date[29]}', '${d_date[30]}',
+                    '${d_date[31]}', '${d_date[32]}', '${d_date[33]}', '${d_date[34]}', '${d_date[35]}',
+                    '${d_date[36]}', '${d_date[37]}', '${d_date[38]}', '${d_date[39]}', '${d_date[40]}'
+                ]
+            },
+            yAxis: {
+                type: 'value'
+            },
+
+            series: [{
+                name: '${sdm[0]}',
+                type: 'line',
+                //stack: '总量',   //加上stack总量，说明当前数量加上一个的数量，如果不写就是各自的数量
+                data: ['${beij_sum[0]}', '${beij_sum[1]}', '${beij_sum[2]}', '${beij_sum[3]}', '${beij_sum[4]}',
+                    '${beij_sum[5]}', '${beij_sum[6]}', '${beij_sum[7]}', '${beij_sum[8]}', '${beij_sum[9]}',
+                    '${beij_sum[10]}', '${beij_sum[11]}', '${beij_sum[12]}', '${beij_sum[13]}', '${beij_sum[14]}',
+                    '${beij_sum[15]}', '${beij_sum[16]}', '${beij_sum[17]}', '${beij_sum[18]}', '${beij_sum[19]}',
+                    '${beij_sum[20]}', '${beij_sum[21]}', '${beij_sum[22]}', '${beij_sum[23]}', '${beij_sum[24]}',
+                    '${beij_sum[25]}', '${beij_sum[26]}', '${beij_sum[27]}', '${beij_sum[28]}', '${beij_sum[29]}',
+                    '${beij_sum[30]}', '${beij_sum[31]}', '${beij_sum[32]}', '${beij_sum[33]}', '${beij_sum[34]}',
+                    '${beij_sum[35]}', '${beij_sum[36]}', '${beij_sum[37]}', '${beij_sum[38]}', '${beij_sum[39]}',]
+
+            },
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    </script>
+
+
+</section>
+
+</body>
+
+
+
+
+
